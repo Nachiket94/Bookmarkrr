@@ -22,7 +22,7 @@ nav {
 }
 
 .search_bar{
-    width: 60vw;
+    width: 254px;
     position: absolute;
     left: 70px;
     top: 10px;
@@ -56,4 +56,32 @@ img {
 
 .new_items_bar{
     background-color: var(--light-grey-clr);
+}
+
+.new_items_modal{
+    background-color: var(--grey-clr);
+    width: 210px;
+    height: 110px;
+    position: absolute;
+    top: 50%;   
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 8px;
+
+}
+
+#name, #group{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-bottom: 1px solid #363636;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.233);
+    outline: none;
+    height: 28px;
+    width: 8rem;
+    color: #fff;
 }

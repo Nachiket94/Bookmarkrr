@@ -14,10 +14,23 @@
             <input type="text" class="search_bar" placeholder="Search Here">
         </div>
     </nav>
-    <section class="new_items_modal hidden new_items_bar">
+    <section class="new_items_modal hidden">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="name"><br></td>
+            </tr>
+            <tr>
+                <td>Group</td>
+                <td><input type="text" id="group">
+            </tr>
+              
+        </table>
+    </section>
+    <div class="new_items_bar">
         <button class="btn" id="new_bkm">New Bookmark</button>
         <button class="btn" id="new_grp">New Group</button>
-    </section>
+    </div>
     <section class="list">
         <ul id="bookmark_list">
         </ul>
