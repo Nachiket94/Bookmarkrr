@@ -17,6 +17,7 @@ body{
     background-color: var(--back-clr-d1);
     width: 350px;
     height: 450px;
+    max-height: 450px;
     margin: 0;
     padding: 0;
 }
@@ -110,22 +111,23 @@ img {
 .hidden{
     display: none;
 }
-
+.list{
+    display: block;
+    height: 300px;
+    width: auto;
+}
 ul{
     margin: 0;
     padding: 0;
 }
 #bookmark_list{
-    display: inline-grid;
-    /* grid-template-columns: repeat(3, 116px);
+    display: grid;
+    grid-template-columns: repeat(3, 108px);
+    grid-template-rows: repeat(10,108px);
     list-style-type: none;
-    grid-gap: 3px;
-    overflow-y: auto; */
     grid-auto-flow: row;
-    grid-auto-rows: 33%; /* play with this to change height of the children, 50% will fill half */
-    grid-template-columns: unset; /* do not set template columns and rows */
-    grid-template-rows: unset;
-    overflow: scroll;
+    grid-gap: 3px;
+    overflow-y: hidden;
 }
 
 #bookmark_list li{
