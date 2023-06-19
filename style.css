@@ -93,7 +93,7 @@ img {
     width: 8rem;
 }
 
-.submitBtn{
+.new_items_submit{
     position: absolute;
     font-size: 1.1rem;
     right: 20px;
@@ -105,7 +105,7 @@ img {
     color: var(--white-clr);
 }
 
-.submitBtn:hover{
+.new_items_submit:hover{
     border: 1px solid var(--grey-clr);
 }
 
