@@ -81,7 +81,7 @@ img {
 
 }
 
-#name, #url{
+#bkm_name, #url, #group_name{
     margin-left: 10px;
     margin-bottom: 5px;
     padding: 0 10px;
@@ -93,7 +93,7 @@ img {
     width: 8rem;
 }
 
-.new_items_submit{
+.submitBtn{
     position: absolute;
     font-size: 1.1rem;
     right: 20px;
@@ -105,7 +105,7 @@ img {
     color: var(--white-clr);
 }
 
-.new_items_submit:hover{
+.submitBtn:hover{
     border: 1px solid var(--grey-clr);
 }
 
