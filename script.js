@@ -12,6 +12,7 @@ var new_bkm_url = document.getElementById("url");
 var new_grp_name = document.getElementById("group_name");
 const getBookmarks = JSON.parse(localStorage.getItem("data"));
 const getGroups = JSON.parse(localStorage.getItem("groups"));
+const display_grp = document.getElementById("bookmark_list");
 let bookmarks_list = [];
 let groups_list = [];
 if(getBookmarks){
@@ -35,6 +36,18 @@ const addGroup = (name) => {
     })
 }
 
+function render(){
+    display_grp.innerText = "";
+    groups_list.forEach(element => {
+    let anchor = document.createElement('a');
+    anchor.href = "#";
+    let li = document.createElement('li');
+    li.innerText = toTitleCase(element.name);
+    anchor.appendChild(li);
+    display_grp.appendChild(anchor)
+    });
+}
+
 let grp = "adsf"
 // Functions Declaration 
 function openModal(e){
@@ -46,6 +59,7 @@ function closeModal(e){
     e.classList.add("hidden");
     overlay.classList.add("hidden");
     console.log("Modal Closed")
+    render();
 }
 
 new_items_submit.addEventListener('click', ()=>{
@@ -87,3 +101,12 @@ document.addEventListener("keydown", function (e) {
     }
 });
 
+function toTitleCase(str) {
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+}
+render();

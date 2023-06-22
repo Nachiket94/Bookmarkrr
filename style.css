@@ -164,7 +164,8 @@ ul{
     background-color: var(--back-clr-d2);
     color: var(--white-clr);
     display: flex;
-    justify-content: center;
+    text-align: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
