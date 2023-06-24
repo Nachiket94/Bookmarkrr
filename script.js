@@ -12,7 +12,9 @@ var new_bkm_url = document.getElementById("url");
 var new_grp_name = document.getElementById("group_name");
 const getBookmarks = JSON.parse(localStorage.getItem("data"));
 const getGroups = JSON.parse(localStorage.getItem("groups"));
-const display_grp = document.getElementById("bookmark_list");
+const display_grp = document.getElementById("group_list");
+const display_bkm = document.getElementById("bookmarks_list");
+
 let bookmarks_list = [];
 let groups_list = [];
 if(getBookmarks){
@@ -36,15 +38,35 @@ const addGroup = (name) => {
     })
 }
 
-function render(){
+function grp_name(e){
+    console.log(e);
+}
+
+function render_grp(){
     display_grp.innerText = "";
     groups_list.forEach(element => {
-    let anchor = document.createElement('a');
-    anchor.href = "#";
+    let button = document.createElement('button');
+    button.href = element.name;
+    button.value = element.name;
+    button.onclick = ()=>{
+        grp_name(element.name);
+    };
     let li = document.createElement('li');
-    li.innerText = toTitleCase(element.name);
-    anchor.appendChild(li);
-    display_grp.appendChild(anchor)
+    button.innerText = toTitleCase(element.name);
+    li.appendChild(button);
+    display_grp.appendChild(li);
+    });
+}
+
+function render_bkm(){
+    display_bkm.innerText = "";
+    bookmarks_list.forEach(element =>{
+        let anchor = document.createElement('a');
+        anchor.href = `${element.url}`;
+        let li = document.createElement('li');
+        li.innerText = toTitleCase(element.name);
+        anchor.appendChild(li);
+        display_bkm.appendChild(anchor);
     });
 }
 
@@ -59,11 +81,11 @@ function closeModal(e){
     e.classList.add("hidden");
     overlay.classList.add("hidden");
     console.log("Modal Closed")
-    render();
+    render_grp();
 }
 
 new_items_submit.addEventListener('click', ()=>{
-    if(new_bkm_name.value != null && new_bkm_url.value != null){
+    if(new_bkm_name.value != "" && new_bkm_url.value != ""){
         addBookmark(new_bkm_name.value, new_bkm_url.value, grp);
         localStorage.setItem('data', JSON.stringify(bookmarks_list));
         new_bkm_name.value = "";
@@ -109,4 +131,4 @@ function toTitleCase(str) {
       }
     );
 }
-render();
+render_grp();
